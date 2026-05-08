@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+
+    <link rel="stylesheet" href="style/weather.css">
+
+</head>
+
+<body>
+
+    <h1> Daily Forecast </h1>
+    <p id="displayLocation"> Location</p>
+    <h2 id="temperature"></h2>
+    <p id="weatherDescription"></p>
+
+    <p id="humidity"> </p>
+    <p id="feelsLike"></p>
+
+
+
+    <!-- Rounded switch-->
+    <label class="switch">
+        <input type="checkbox" id="tempToggle">
+        <span class="slider round"></span>
+    </label>
+    <!--End Rounded switch-->
+
+    <form id="weatherForm">
+        <label for="cityName"> City:  </label>
+        <input type="Search" name="cityName" id="cityName">
+        <input type="submit" value="Search">
+
+
+    </form>
+
+
+      <div class="forecast-container"> </div>
+
+
+
+
+</body>
+
+<footer>
+
+
+</footer>
+
+
+
+<script type="module" src="script/app.js"></script>
+
+</html>
