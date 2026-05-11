@@ -13,13 +13,13 @@
 <body>
 
     <h1> Daily Forecast </h1>
-    <p id="displayLocation"> Location</p>
-    <h2 id="temperature"></h2>
-    <p id="weatherDescription"></p>
 
-    <p id="humidity"> </p>
-    <p id="feelsLike"></p>
-
+    <form id="weatherForm">
+        <label for="cityName"> City: </label>
+        <input type="Search" name="cityName" id="cityName">
+        <input type="submit" value="Search">
+    </form>
+    
 
 
     <!-- Rounded switch-->
@@ -29,16 +29,20 @@
     </label>
     <!--End Rounded switch-->
 
-    <form id="weatherForm">
-        <label for="cityName"> City:  </label>
-        <input type="Search" name="cityName" id="cityName">
-        <input type="submit" value="Search">
 
 
-    </form>
+
+    <p id="displayLocation"> Location</p>
+    <h2 id="temperature"></h2>
+    <img id = icon>
+    <p id="weatherDescription"></p>
+    <p id="humidity"> </p>
+    <p id="feelsLike"></p>
 
 
-      <div class="forecast-container"> </div>
+
+
+    <div class="forecast-container"> </div>
 
 
 

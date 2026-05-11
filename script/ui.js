@@ -9,11 +9,18 @@ const temperatureEl = document.getElementById('temperature')
 const locationEl = document.getElementById('displayLocation')
 const tempCheckboxEl = document.getElementById('tempToggle')
 const dayEl = document.getElementById('day')
+const icon = document.getElementById('icon')
 
 
 export function displayWeather(data) {
   
+  const iconCode = data.weather[0].icon;
+  const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+
   locationEl.textContent = data.name
+icon.src = iconUrl;
+icon.alt = data.weather[0].description
   humidityEl.textContent = `Humidity: ${data.main.humidity}%`
   feelsLikeEl.textContent = `Feels like: ${Math.round(data.main.feels_like)}°F`
   descriptionEl.textContent = data.weather[0].description
@@ -66,10 +73,16 @@ const container = document.querySelector(".forecast-container");
 data.list.forEach(day  => {
   const date = new Date(day.dt * 1000);
   const card = document.createElement("div");
+  
   card.classList.add("forecast-card");
+  const iconCode = day.weather[0].icon;
+  const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+
 
   card.innerHTML = `
-    <h3>${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}</h3>
+    <h3>${days[date.getDay()]}</h3>
+     <img src= " ${iconUrl} " alt = " ${day.weather[0].description} " >
     <p> ${day.weather[0].description}</p>
     <p> ${Math.round(day.temp.day)}°F </p>
   `;
@@ -79,10 +92,6 @@ data.list.forEach(day  => {
 
 
 
-
-
-
-  
 }); // end for
 
 
@@ -102,6 +111,39 @@ export function showError(message) {
 } //end showError
 
 
+export function getLocation(onUpdate) {
+
+  return navigator.geolocation.getCurrentPosition((position,error) => {
+    // "Return" the data by passing it to  callback
+    onUpdate(position.coords);
+  });
+} 
+    
+  
+
+
+function error(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      locationEl.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      locationEl.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      locationEl.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      locationEl.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+
+  
+    
+    
+  
+    
 
 
 
