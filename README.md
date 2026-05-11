@@ -19,3 +19,4 @@ A responsive weather application built using Javascript and OpenWeather API.
 - Working with REST APIs
 - Handing asynchronous Javascipt using fetch
 - HTML DOM Document createElement()
+- Geolocation- watchPosition and getPosition
