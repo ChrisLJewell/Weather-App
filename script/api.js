@@ -3,35 +3,49 @@
 const apiKey = "3053b1c8ec0bfb0fb8b2f11ac643a56f";
 
 export async function getCoordinates(city) {
-const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
-    
-        const response = await fetch(url);
+  // Regex to match "city, state" format e.g. "Flushing, MI"
+  const cityStateRegex = /^([a-zA-Z\s]+)(?:,\s*|\s+)([a-zA-Z]{2})$/;
+  const match = city.trim().match(cityStateRegex);
 
+  let query = city;
+  let stateCode = null;
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const coordinateData = await response.json();
+  if (match) {
+    const cityName = match[1].trim();
+    stateCode = match[2].toUpperCase();
+    query = `${cityName},${stateCode},US`; 
+  }
 
+  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`;
 
-            console.log("Success:", coordinateData);
-     
-            return{ lat: coordinateData[0].lat, lon: coordinateData[0].lon}
-         
-         
-         
-         
-         
-        
-        
+  const response = await fetch(url);
 
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
 
-    
+  const coordinateData = await response.json();
+  console.log("Success:", coordinateData);
 
+  if (!coordinateData.length) {
+    throw new Error("No results found for that location.");
+  }
 
-    
-    
-} // end getCoordinates 
+  // Loop through results to find the one matching the state
+  if (stateCode) {
+    const stateMatch = coordinateData.find(
+      (location) => location.state?.toUpperCase() === stateCode
+    );
+
+    if (stateMatch) {
+      console.log("Matched:", stateMatch);
+      return { lat: stateMatch.lat, lon: stateMatch.lon };
+    }
+  }
+
+  // Fallback to first result
+  return { lat: coordinateData[0].lat, lon: coordinateData[0].lon };
+}// end getCoordinates 
 
 
 export async function getWeather(lat, lon) {

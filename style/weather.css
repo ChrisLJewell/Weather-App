@@ -1,5 +1,6 @@
 h1{
     color: blue;
+    text-align: center;
 }
 
 
@@ -69,10 +70,13 @@ input:checked + .slider:before{
 /* Horizontal Scrollable for daily forecast */ 
 
 .forecast-container {
+   background-image: linear-gradient(rgb(109, 108, 108),rgb(44, 51, 73));
     display: flex;
-    gap: 10px;
+    width: 900px;
+    gap: 20px;
     overflow-x: auto;
-    padding: 4px 2px 12px;
+    margin-left: 50px;
+    padding: 10px 10px 10px;
     scrollbar-width: thin;
     scrollbar-color: rgba(0,0,0,0.2) transparent;
     -webkit-overflow-scrolling: touch;
@@ -83,25 +87,37 @@ input:checked + .slider:before{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+
     padding: 16px 20px;
-    background: #fff;
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 12px;
-    min-width: 90px;
-    transition: border-color 0.15s, background 0.15s;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    
+    border-radius: 16px;
+    
+    border: 1px solid rgba(255, 255, 255, 0.3);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+box-shadow: 0 4px 30px rgba(0,0,0,0.1);
 }
 
-.forecast-card:hover {
-    border-color: rgba(0,0,0,0.2);
-    background: #f9f9f9;
+
+
+
+
+
+
+.current-forcast-container{
+    border: solid;
 }
 
+#feelsLike{
+    text-align: right;
+}
 
-
-
-
-
-
-
+#humidity{
+  
+    display:block;
+    text-align: start;
+    
+}
 
