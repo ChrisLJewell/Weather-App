@@ -3,7 +3,7 @@ import { displayWeather, showError, displayDailyForecast,getLocation} from './ui
 
 const form = document.getElementById('weatherForm')
 const cityInput = document.getElementById('cityName')
-const AMOUNT_OF_DAYS = 7;
+const AMOUNT_OF_DAYS = 10;
 
 
 

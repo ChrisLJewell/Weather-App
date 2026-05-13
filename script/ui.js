@@ -11,6 +11,7 @@ const tempCheckboxEl = document.getElementById('tempToggle')
 const dayEl = document.getElementById('day')
 const icon = document.getElementById('icon')
 const tempBtnEl = document.getElementById("toggleBtn")
+const wind = document.getElementById("wind")
 
 
 export function displayWeather(data) {
@@ -32,6 +33,7 @@ export function displayWeather(data) {
   
   
   descriptionEl.textContent = data.weather[0].description
+  wind.textContent = `Wind ${data.wind.speed} mph`
 
 
  
@@ -66,8 +68,8 @@ export function displayDailyForecast(data) {
 
 
       card.innerHTML = `
-    <h3>${days[date.getDay()]}</h3>
-     <p>${date.getDate()}</p>
+    <h3 id = "forecast-card-day">${days[date.getDay()]}</h3>
+     <p id = "forecast-card-date">${date.getDate()}</p>
      <img src= " ${iconUrl} " alt = " ${day.weather[0].description} " >
     <p> ${day.weather[0].description}</p>
 
