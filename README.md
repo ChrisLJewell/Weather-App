@@ -21,3 +21,4 @@ A responsive weather application built using Javascript and OpenWeather API.
 - HTML DOM Document createElement()
 - Geolocation- watchPosition and getPosition
 - Clear container before rendering
+- Figma for simple weather icons

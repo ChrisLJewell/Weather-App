@@ -14,6 +14,19 @@
 
     <h1> TrueForecast</h1>
 
+    <!-- Rounded switch-->
+ <div id = toggle>    
+<label class="switch">
+    <input type="checkbox" id="tempToggle">
+    <span class="slider round"></span>
+</label>
+<span id = label-toggle></span>
+</div>
+<!--End Rounded switch-->
+
+
+
+
     <form id="weatherForm">
         <label for="cityName"> City: </label>
         <input type="Search" name="cityName" id="cityName">
@@ -22,24 +35,30 @@
     
 
 
-    <!-- Rounded switch-->
-    <label class="switch">
-        <input type="checkbox" id="tempToggle">
-        <span class="slider round"></span>
-    </label>
-    <!--End Rounded switch-->
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 
 <div class = "current-forcast-container">  
     <p>Current weather </p> 
     <h3 id="displayLocation">  </h3>
+     <p id="weatherDescription"></p>
     <h2 id="temperature"></h2>
-    <img id = icon>
-    <p id="weatherDescription"></p>
-    <p id="humidity"> </p>
-    <p id="feelsLike"></p>
-    <p id="wind"></p>
+    
+<div class = weather-info>                   
+    <li id="humidity"> </li> 
+
+    <li id="feelsLike"></li>
+    <li id="wind"></li>
+ </div>
+
 </div>
 
 
