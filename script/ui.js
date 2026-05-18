@@ -9,6 +9,7 @@ const temperatureEl = document.getElementById('temperature')
 const locationEl = document.getElementById('displayLocation')
 const tempCheckboxEl = document.getElementById('tempToggle')
 const dayEl = document.getElementById('day')
+const iconEl = document.getElementById('icon')
 
 const tempBtnEl = document.getElementById("toggleBtn")
 const wind = document.getElementById("wind")
@@ -26,6 +27,7 @@ export function displayWeather(data) {
   
  
   humidityEl.textContent = `Humidity: ${data.main.humidity} %`
+  iconEl.src =`images/${data.weather[0].icon}.svg`;
 
 
   feelsLikeEl.className = 'current-feels';

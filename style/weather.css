@@ -185,6 +185,12 @@ input:checked + .slider:before {
 }
 
 
+#icon{
+    width: 300px;
+    height: 200px;
+    
+}
+
 /* =========================
    Forecast Section
 ========================= */
