@@ -76,6 +76,12 @@ switch (data.weather[0].main) {
  }else{
 
 
+currentForecastBackground.classList.forEach(className => {
+    if (className.startsWith('day-') || className.startsWith('night-')) {
+        currentForecastBackground.classList.remove(className);
+    }
+});
+
 
 
 
