@@ -10,9 +10,10 @@ const locationEl = document.getElementById('displayLocation')
 const tempCheckboxEl = document.getElementById('tempToggle')
 const dayEl = document.getElementById('day')
 const iconEl = document.getElementById('icon')
-
+const f_C = document.getElementById('F_C')
 const tempBtnEl = document.getElementById("toggleBtn")
 const wind = document.getElementById("wind")
+const currentForecastBackground = document.querySelector(".current-forcast-container");
 
 
 
@@ -23,7 +24,91 @@ export function displayWeather(data) {
 
 
 
-  locationEl.textContent = data.name
+const currentTime = data.dt;
+const sunrise = data.sys.sunrise;
+const sunset = data.sys.sunset;
+
+const isNight = currentTime < sunrise || currentTime > sunset;
+
+if(isNight){
+  
+
+currentForecastBackground.classList.forEach(className => {
+    if (className.startsWith('day-') || className.startsWith('night-')) {
+        currentForecastBackground.classList.remove(className);
+    }
+});
+
+
+
+switch (data.weather[0].main) {
+  case 'Clear': 
+  currentForecastBackground.classList.add('night-clear');
+  break;
+  case 'Clouds': 
+  currentForecastBackground.classList.add('night-clouds'); 
+  break;
+  case 'Rain': 
+  currentForecastBackground.classList.add('night-rain');
+   break;
+  case 'Drizzle': 
+  currentForecastBackground.classList.add('night-drizzle'); 
+  break;
+  case 'Thunderstorm': 
+  currentForecastBackground.classList.add('night-thunderstorm');
+   break;
+  case 'Snow': 
+  currentForecastBackground.classList.add('night-snow'); 
+  break;
+  case 'mist': 
+  currentForecastBackground.classList.add('night-mist'); 
+  break;
+}
+
+
+
+ 
+ 
+
+
+  currentForecastBackground.style.color = "white"; // white font 
+
+ }else{
+
+
+
+
+
+
+switch (data.weather[0].main) {
+  case 'Clear': 
+    currentForecastBackground.classList.add('day-clear'); 
+    break;
+  case 'Clouds': 
+    currentForecastBackground.classList.add('day-clouds'); 
+    break;
+  case 'Rain': 
+    currentForecastBackground.classList.add('day-rain'); 
+    break;
+  case 'Drizzle': 
+    currentForecastBackground.classList.add('day-drizzle'); 
+    break;
+  case 'Thunderstorm': 
+    currentForecastBackground.classList.add('day-thunderstorm'); 
+    break;
+  case 'Snow': 
+    currentForecastBackground.classList.add('day-snow'); 
+    break;
+  case 'mist': 
+    currentForecastBackground.classList.add('day-mist'); 
+    break;
+}
+  
+ }
+
+
+
+  locationEl.textContent = `${data.name} , ${data.sys.country}`
   
  
   humidityEl.textContent = `Humidity: ${data.main.humidity} %`
@@ -45,7 +130,7 @@ export function displayWeather(data) {
   
   temperatureEl.className = 'current-temp';
   temperatureEl.dataset.tempF = data.main.temp;
-  temperatureEl.textContent = `${Math.round(data.main.temp)}°F`
+  temperatureEl.textContent = `${Math.round(data.main.temp)}°`
 } // end displayWeather
 
 
@@ -157,6 +242,7 @@ tempCheckboxEl.addEventListener('change', () => {
           const minC = Math.round((minF - 32) * 5 / 9);
 
           el.textContent = `${maxC}° / ${minC}°`;
+          
         } else {
           el.textContent = `${Math.round(maxF)}° / ${Math.round(minF)}°`;
         }
@@ -169,12 +255,14 @@ tempCheckboxEl.addEventListener('change', () => {
 
       if (isCelsius) {
         el.textContent = el.classList.contains('current-feels')
-          ? `Feels like: ${Math.round((f - 32) * 5 / 9)}°C`
-          : `${Math.round((f - 32) * 5 / 9)}°C`;
+          ? `Feels like: ${Math.round((f - 32) * 5 / 9)}°`
+          : `${Math.round((f - 32) * 5 / 9)}°`;
+          f_C.innerHTML = "Celsius" // label for toggle
       } else {
         el.textContent = el.classList.contains('current-feels')
-          ? `Feels like: ${Math.round(f)}°F`
-          : `${Math.round(f)}°F`;
+          ? `Feels like: ${Math.round(f)}°`
+          : `${Math.round(f)}°`;
+           f_C.innerHTML = "Fahrenheit" // label for toggle
       }
     });
 });
