@@ -101,3 +101,38 @@ export async function getDailyForecast(lat,lon,cnt) {
     return dailyForecast
     
 }
+
+export async function getHourlyForecast(lat,lon) {
+
+
+
+
+    const url = `https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
+
+
+   const response = await fetch(url);
+
+
+    if(!response.ok) {
+
+
+        throw new Error(`HTTP error! status: ${response.status}`);
+    
+    
+
+
+    }
+    const hourlyForecast = await response.json();
+
+
+
+ console.log("Success hourly:", hourlyForecast);
+   
+
+
+    return hourlyForecast
+    
+}
+
+
+

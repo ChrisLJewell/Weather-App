@@ -13,66 +13,73 @@
 <body>
 
     <h1> TrueForecast</h1>
-    <h4 id = F_C>  Fahrenheit </h4>
+    <h4 id=F_C> Fahrenheit </h4>
 
     <!-- Rounded switch-->
- <div id = toggle>    
-     
-<label class="switch">
-    
-    <input type="checkbox" id="tempToggle">
-    <span class="slider round"></span>
-</label>
-<span id = label-toggle></span>
- 
-</div>
-<!--End Rounded switch-->
+    <div id=toggle>
+
+        <label class="switch">
+
+            <input type="checkbox" id="tempToggle">
+            <span class="slider round"></span>
+        </label>
+        <span id=label-toggle></span>
+
+    </div>
+    <!--End Rounded switch-->
 
 
 
 
     <form id="weatherForm">
-        <label for="cityName" id = "cityNameLabel"> City: </label>
+        <label for="cityName" id="cityNameLabel"> City: </label>
         <input type="Search" name="cityName" id="cityName" placeholder="Search for a city">
-        <input type="image" src = "images/search_IC.svg" class = "search-btn" value="Search">
+        <input type="image" src="images/search_IC.svg" class="search-btn" value="Search">
     </form>
-    
-
-
-    
-    
-    
-    
-    
-    
-    
-    
 
 
 
-<div class = "current-forcast-container">  
-    <p>Current </p> 
 
-    <h2 id="displayLocation">  </h2>
-     <div   class ="center" > <div id = "loader"></div>  </div>
-   
-     <h3 id="weatherDescription"></h3>
-     <img id = icon>
-    <h2 id="temperature"></h2>
-    
-<div class = current-weather-info>                   
-    <li id="humidity"> </li> 
 
-    <li id="feelsLike"></li>
-    <li id="wind"></li>
- </div>
 
+
+
+
+
+
+
+
+
+    <div class="current-forcast-container">
+        <p>Current </p>
+
+        <h2 id="displayLocation"> </h2>
+        <div class="center">
+            <div id="loader"></div>
+        </div>
+
+        <h3 id="weatherDescription"></h3>
+        <img id=icon>
+        <h2 id="temperature"></h2>
+
+        <div class=current-weather-info>
+            <li id="humidity"> </li>
+
+            <li id="feelsLike"></li>
+            <li id="wind"></li>
+        </div>
+
+    </div>
+
+<div class="chart-card" >
+  <canvas id="hourlyChart"></canvas>
 </div>
 
 
 
-    <div class="forecast-container"> 
-        
+
+    <div class="forecast-container">
+
     </div>
 
 
@@ -88,5 +95,7 @@
 
 
 <script type="module" src="script/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
 
 </html>
