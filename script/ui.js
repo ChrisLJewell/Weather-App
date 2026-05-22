@@ -14,8 +14,8 @@ const f_C = document.getElementById('F_C')
 const tempBtnEl = document.getElementById("toggleBtn")
 const wind = document.getElementById("wind")
 const currentForecastBackground = document.querySelector(".current-forcast-container");
-
-
+const container = document.querySelector(".forecast-container");
+const loader = document.getElementById("loader")
 
 
 export function displayWeather(data) {
@@ -146,7 +146,7 @@ export function displayDailyForecast(data) {
 
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  const container = document.querySelector(".forecast-container");
+  
   container.innerHTML = " "; // clear it first
 
 
@@ -187,9 +187,8 @@ export function displayDailyForecast(data) {
 
 } // end displayDailyForecast
 
-export function showError(message) {
-  locationEl.textContent = message
-} //end showError
+
+
 
 
 export function getLocation(onUpdate) {
@@ -198,27 +197,40 @@ export function getLocation(onUpdate) {
     // "Return" the data by passing it to  callback
     onUpdate(position.coords);
   });
-}
+} // end getLocation
 
 
 
 
-function error(error) {
+export function showError(error) {
   switch (error.code) {
+    
     case error.PERMISSION_DENIED:
-      locationEl.innerHTML = "User denied the request for Geolocation."
+      locationEl.innerHTML = "City not found, please try again"
+      container.innerHTML = " No forecast available"
+      descriptionEl.innerHTML = " "
       break;
     case error.POSITION_UNAVAILABLE:
       locationEl.innerHTML = "Location information is unavailable."
+      container.innerHTML = " No forecast available"
+      descriptionEl.innerHTML = " "
       break;
     case error.TIMEOUT:
       locationEl.innerHTML = "The request to get user location timed out."
+      container.innerHTML = " No forecast available"
+      descriptionEl.innerHTML = " "
       break;
     case error.UNKNOWN_ERROR:
       locationEl.innerHTML = "An unknown error occurred."
+      container.innerHTML = " No forecast available"
+      descriptionEl.innerHTML = " "
       break;
+
+     
+
+      
   }
-}
+} // end weather 
 
 let isCelsius = false;
 
@@ -271,10 +283,38 @@ tempCheckboxEl.addEventListener('change', () => {
            f_C.innerHTML = "Fahrenheit" // label for toggle
       }
     });
-});
+}); // end toggle checkbox
+
+
+export function showLoading(){
+
+  
+   loader.style.display = "block";
+  
+ 
+ 
+ humidityEl.textContent = " ";
+ iconEl.src ="";
+
+
+ feelsLikeEl.textContent = " "
+ 
+ 
+ 
+ descriptionEl.textContent + " "
+ wind.textContent = " "
+ 
 
 
 
+ temperatureEl.textContent = " "
+}
+
+
+export function removeLoading(){
+
+  loader.style.display = "none";
+}
 
 
 

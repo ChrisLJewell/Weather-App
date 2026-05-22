@@ -3,14 +3,21 @@
 ========================= */
 
 html {
-    background-color: rgb(241, 246, 255);
+   background-color: rgb(241, 246, 255);
 }
 
 h1 {
-    color: rgb(9, 9, 10);
+    color: rgb(5, 5, 192);
     margin-bottom: 10px;
+  
     
 }
+#F_C{
+    text-align: right;
+    padding-right: 10px;
+}
+
+
 
 li {
     display: inline;
@@ -144,20 +151,24 @@ input:checked + .slider:before {
 
 /* Search Button */
 .search-btn {
-    width: 40px;
-    height: 40px;
+   width: 32px;
+   height: 32px;
+   }
 
-    border: none;
-    cursor: pointer;
 
-    background: url("images/icons8-search.svg") no-repeat center;
-    background-size: 20px;
-}
+
+
 
 
 /* =========================
    Current Weather Card
 ========================= */
+
+#current-weather-info{
+ display: flex;
+}
+
+
 
 .current-forcast-container {
     display: block;
@@ -292,14 +303,56 @@ input:checked + .slider:before {
 
 
 
-#logo {
-    width: 100px;
-    height: auto;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   Loading State
+========================= */
+
+#loader {
+    border: 8px solid rgb(170, 167, 167);
+    border-top: 8px solid rgb(64, 64, 233);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    display: none;
+  
+    
+
+
+ 
+ 
+ 
+ 
+ 
+
 }
 
 
+.center{
+     display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-
+@keyframes spin {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
 
 
 

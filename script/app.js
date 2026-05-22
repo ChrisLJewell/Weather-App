@@ -1,9 +1,9 @@
 import { getCoordinates, getWeather, getDailyForecast } from './api.js'
-import { displayWeather, showError, displayDailyForecast,getLocation} from './ui.js'
+import { displayWeather, showError, removeLoading,  displayDailyForecast,getLocation, showLoading} from './ui.js'
 
 const form = document.getElementById('weatherForm')
 const cityInput = document.getElementById('cityName')
-const AMOUNT_OF_DAYS = 10;
+const AMOUNT_OF_DAYS = 16;
 
 
 
@@ -12,6 +12,7 @@ const watchID = getLocation(async(coords) => {
 
 let lat = coords.latitude
 let lon = coords.longitude
+
 
  
  try {
@@ -23,7 +24,7 @@ let lon = coords.longitude
   
   
 } catch (error) {
-  showError('City not found, please try again')}
+  showError(error)}
 
 
 
@@ -47,7 +48,11 @@ form.addEventListener('submit', async (e) => {
 
   if (!city) return
 
+  showLoading();
+
+ 
   try {
+    removeLoading();
     const coords = await getCoordinates(city);
     const weather = await getWeather(coords.lat, coords.lon);
     const dailyForecast = await getDailyForecast(coords.lat,coords.lon,AMOUNT_OF_DAYS);
@@ -56,6 +61,6 @@ form.addEventListener('submit', async (e) => {
     
     
   } catch (error) {
-    showError('City not found, please try again')
+  showError(error);
   }
 })

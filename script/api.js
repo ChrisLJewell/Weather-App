@@ -38,7 +38,7 @@ export async function getCoordinates(city) {
     );
 
     if (stateMatch) {
-      console.log("Matched:", stateMatch);
+      
       return { lat: stateMatch.lat, lon: stateMatch.lon };
     }
   }
@@ -96,7 +96,7 @@ export async function getDailyForecast(lat,lon,cnt) {
     const dailyForecast = await response.json();
 
 
-    console.log("Success:" , dailyForecast);
+   
 
     return dailyForecast
     
