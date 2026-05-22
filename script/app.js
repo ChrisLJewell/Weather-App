@@ -17,14 +17,9 @@ let lon = coords.longitude
  
  try {
 
-
-
   const weather = await getWeather(lat, lon);
- const dailyForecast = await getDailyForecast(lat,lon,AMOUNT_OF_DAYS);
-    
-    
+  const dailyForecast = await getDailyForecast(lat,lon,AMOUNT_OF_DAYS);
   displayWeather(weather);
- 
   displayDailyForecast(dailyForecast);
   
   
@@ -58,15 +53,10 @@ form.addEventListener('submit', async (e) => {
  
   try {
     removeLoading();
-
     const coords = await getCoordinates(city);
-  
     const weather = await getWeather(coords.lat, coords.lon);
     const dailyForecast = await getDailyForecast(coords.lat,coords.lon,AMOUNT_OF_DAYS);
-  
-      
     displayWeather(weather);
-   
     displayDailyForecast(dailyForecast);
     
     
