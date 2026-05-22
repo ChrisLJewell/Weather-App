@@ -3,8 +3,9 @@ A responsive weather application built using Javascript and OpenWeather API.
 
 ## Features
 - Search by city
+- Search by city and state (US only)
 - Current weather 
-- 10-day forecast
+- 16-day forecast
 - Fahrenheit/Celsius toggle
 - Geolocation support
 
