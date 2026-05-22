@@ -102,7 +102,7 @@ export async function getDailyForecast(lat,lon,cnt) {
     
 }
 
-export async function getHourlyForecast(lat,lon) {
+/*export async function getHourlyForecast(lat,lon) {
 
 
 
@@ -132,7 +132,7 @@ export async function getHourlyForecast(lat,lon) {
 
     return hourlyForecast
     
-}
+}*/ // 
 
 
 

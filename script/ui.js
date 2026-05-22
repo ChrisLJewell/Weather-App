@@ -333,7 +333,7 @@ export function removeLoading(){
   loader.style.display = "none";
 }
 
-export function hourlyChart(data) {
+/*export function hourlyChart(data) {
  
  // 1. Slice the first 24 items to restrict the chart to exactly 1 day
 const oneDayData = data.list.slice(0, 24);
@@ -473,7 +473,7 @@ window.hourlyChart = new Chart(ctx, {
       }
     }
   }
-});}
+});}*/
 
  
  

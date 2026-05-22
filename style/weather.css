@@ -300,29 +300,23 @@ input:checked + .slider:before {
 ========================= */
 
 
-.chart-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  
-  width: 100%;
-  max-width: 900px;
-  margin: 40px auto 0; 
-  padding: 20px;
-  
-  /* Matches standard dashboard card aesthetics */
-  background: #ffffff; 
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
 
-/* Force the canvas to respect the wrapper boundaries */
-#hourlyChart {
-  width: 100% !important;
-  height: auto !important;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
