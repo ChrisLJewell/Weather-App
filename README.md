@@ -5,8 +5,8 @@ A responsive weather application built with JavaScript and the OpenWeather API.
 ---
 
 ## Live Demo
-Add your GitHub Pages link here
 
+https://chrisljewell.github.io/Weather-App/
 ---
 
 ## Features
@@ -26,6 +26,7 @@ Add your GitHub Pages link here
 - CSS
 - JavaScript (ES6+)
 - OpenWeather API
+- Figma for weather icon 
 - Data visualization with Chart.js (implemented during development but later removed to simplify the UI)
 
 ---
