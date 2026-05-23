@@ -16,7 +16,7 @@ export async function getCoordinates(city) {
     query = `${cityName},${stateCode},US`; 
   }
 
-  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`;
 
   const response = await fetch(url);
 
