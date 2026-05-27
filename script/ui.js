@@ -117,18 +117,18 @@ switch (data.weather[0].main) {
   locationEl.textContent = `${data.name} , ${data.sys.country}`
   
  
-  humidityEl.textContent = `Humidity: ${data.main.humidity} %`
+  humidityEl.textContent = ` ${data.main.humidity} %`
   iconEl.src =`images/${data.weather[0].icon}.svg`;
 
 
-  feelsLikeEl.className = 'current-feels';
+ 
   feelsLikeEl.dataset.tempF = data.main.feels_like;
-  feelsLikeEl.textContent = `Feels like: ${Math.round(data.main.feels_like)}°F`
+  feelsLikeEl.textContent = ` ${Math.round(data.main.feels_like)}°F`
   
   
   
   descriptionEl.textContent = data.weather[0].description
-  wind.textContent = `Wind speed ${data.wind.speed} mph`
+  wind.textContent = ` ${Math.round(data.wind.speed)} mph`
 
 
  
