@@ -50,6 +50,7 @@ https://chrisljewell.github.io/Weather-App/
 - Add loading states while fetching data
 - Improve UI spacing and visual hierarchy
 - Save recent searched cities
+- Improve toggle logic
 ## Notes
 
 This project helped me understand how real-world weather apps fetch and display live data in a responsive UI.
