@@ -7,20 +7,31 @@ const feelsLikeEl = document.getElementById('feelsLike')
 const descriptionEl = document.getElementById('weatherDescription')
 const temperatureEl = document.getElementById('temperature')
 const locationEl = document.getElementById('displayLocation')
-const tempCheckboxEl = document.getElementById('tempToggle')
-const dayEl = document.getElementById('day')
-const iconEl = document.getElementById('icon')
 const f_C = document.getElementById('F_C')
-const tempBtnEl = document.getElementById("toggleBtn")
+
+const iconEl = document.getElementById('icon')
+
+
 const wind = document.getElementById("wind")
 const currentForecastBackground = document.querySelector(".current-forcast-container");
 const container = document.querySelector(".forecast-container");
 const loader = document.getElementById("loader")
 
 
-export function displayWeather(data) {
+export function displayWeather(data , units) {
 
+ f_C.textContent = units === "metric"
+        ? "Celsius"
+        : "Fahrenheit";
 
+         const windUnit = units === "metric"
+        ? "m/s"
+        : "mph";
+
+        const feelLikeUnit = units === "metric" ?
+        "C" : "F";
+
+    wind.textContent = `${Math.round(data.wind.speed)} ${windUnit}`;
 
 
 
@@ -123,12 +134,11 @@ switch (data.weather[0].main) {
 
  
   feelsLikeEl.dataset.tempF = data.main.feels_like;
-  feelsLikeEl.textContent = ` ${Math.round(data.main.feels_like)}°F`
+  feelsLikeEl.textContent = ` ${Math.round(data.main.feels_like)} ${feelLikeUnit}`
   
   
   
   descriptionEl.textContent = data.weather[0].description
-  wind.textContent = ` ${Math.round(data.wind.speed)} mph`
 
 
  
@@ -137,6 +147,16 @@ switch (data.weather[0].main) {
   temperatureEl.className = 'current-temp';
   temperatureEl.dataset.tempF = data.main.temp;
   temperatureEl.textContent = `${Math.round(data.main.temp)}°`
+
+  
+  
+  
+
+  
+  
+  
+
+  
 } // end displayWeather
 
 
@@ -232,10 +252,6 @@ export function showError(error) {
   }
 } // end weather 
 
-let isCelsius = false;
-
-tempCheckboxEl.addEventListener('change', () => {
-  isCelsius = tempCheckboxEl.checked;
 
 
 
@@ -246,44 +262,37 @@ tempCheckboxEl.addEventListener('change', () => {
 
 
 
-  document.querySelectorAll('.current-temp, .forecast-temp, .current-feels')
-    .forEach(el => {
 
-      // Forecast temps (max/min)
-      if (el.classList.contains('forecast-temp')) {
 
-        const maxF = parseFloat(el.dataset.tempMaxF);
-        const minF = parseFloat(el.dataset.tempMinF);
 
-        if (isCelsius) {
-          const maxC = Math.round((maxF - 32) * 5 / 9);
-          const minC = Math.round((minF - 32) * 5 / 9);
 
-          el.textContent = `${maxC}° / ${minC}°`;
-          
-        } else {
-          el.textContent = `${Math.round(maxF)}° / ${Math.round(minF)}°`;
-        }
 
-        return;
-      }
 
-      // Current temp / feels like
-      const f = parseFloat(el.dataset.tempF);
 
-      if (isCelsius) {
-        el.textContent = el.classList.contains('current-feels')
-          ? `Feels like: ${Math.round((f - 32) * 5 / 9)}°`
-          : `${Math.round((f - 32) * 5 / 9)}°`;
-          f_C.innerHTML = "Celsius" // label for toggle
-      } else {
-        el.textContent = el.classList.contains('current-feels')
-          ? `Feels like: ${Math.round(f)}°`
-          : `${Math.round(f)}°`;
-           f_C.innerHTML = "Fahrenheit" // label for toggle
-      }
-    });
-}); // end toggle checkbox
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 export function showLoading(){

@@ -48,12 +48,12 @@ export async function getCoordinates(city) {
 }// end getCoordinates 
 
 
-export async function getWeather(lat, lon) {
+export async function getWeather(lat, lon,units) {
 
 
 
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
 
 
     
@@ -81,10 +81,10 @@ export async function getWeather(lat, lon) {
 
 
 
-export async function getDailyForecast(lat,lon,cnt) {
+export async function getDailyForecast(lat,lon,cnt,units) {
 
 
-    const url = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=${cnt}&units=imperial&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=${cnt}&units=${units}&appid=${apiKey}`;
 
    const response = await fetch(url);
 
