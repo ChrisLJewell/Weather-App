@@ -5,9 +5,10 @@ A responsive weather application built with JavaScript and the OpenWeather API.
 
 ---
 
+
 ## Live Demo
 
-https://chrisljewell.github.io/Weather-App/
+[![Live Demo Button](https://img.shields.io/badge/Live_Demo-Weather_App_🌤️-blue?style=for-the-badge)](https://chrisljewell.github.io/Weather-App/)
 ---
 
 ## Features
